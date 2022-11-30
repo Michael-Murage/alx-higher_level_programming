@@ -2,6 +2,8 @@
 import random
 number = random.randint(-10000, 10000)
 y = int(str(number)[-1])
+if (number < 0):
+    y = -y
 
 
 def compare(num):
@@ -10,7 +12,7 @@ def compare(num):
         return "and is greater than 5"
     elif (x == 0):
         return "and is 0"
-    elif (x > 0 & x <= 5):
+    elif (x != 0 & x <= 5):
         return "and is less than 6 and not 0"
 
 
