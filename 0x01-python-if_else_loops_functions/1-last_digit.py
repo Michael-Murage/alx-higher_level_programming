@@ -7,7 +7,7 @@ if (number < 0):
 
 
 def compare(num):
-    x = int(str(num)[-1])
+    x = y
     if (x > 5):
         return "and is greater than 5"
     elif (x == 0):
