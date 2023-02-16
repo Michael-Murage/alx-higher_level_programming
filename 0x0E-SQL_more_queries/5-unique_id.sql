@@ -5,4 +5,4 @@
 -- name VARCHAR(256)
 -- The database name will be passed as an argument of the mysql command
 -- If the table unique_id already exists, your script should not fail
-CREATE TABLE IF NOT EXISTS unique_id (id INT AUTOINCREMENT, name VARCHAR(256));
+CREATE TABLE IF NOT EXISTS unique_id (id INT UNIQUE AUTOINCREMENT, name VARCHAR(256));
