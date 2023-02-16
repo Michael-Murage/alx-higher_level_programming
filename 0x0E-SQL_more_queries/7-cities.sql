@@ -7,7 +7,9 @@
 -- If the database hbtn_0d_usa already exists, your script should not fail
 -- If the table cities already exists, your script should not fail
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
+USE hbtn_0d_usa;
 CREATE TABLE IF NOT EXISTS cities (
-    id UNIQUE AUTOINCREMENT NOTNULL PRIMARY KEY, 
-    state_id INT NOTNULL FOREIGN KEY
+    id INT UNIQUE AUTOINCREMENT NOTNULL PRIMARY KEY, 
+    state_id INT NOTNULL FOREIGN KEY REFERENCES states(id),
+    name VARCHAR(256) NOT NULL
 );
