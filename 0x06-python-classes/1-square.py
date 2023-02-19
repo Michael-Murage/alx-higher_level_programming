@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 class Square:
     __size = 0
     def __init__(self, inp):
