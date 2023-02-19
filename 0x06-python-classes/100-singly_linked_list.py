@@ -2,54 +2,61 @@
 
 
 class Node:
-    """Define class Node of a singly linked list"""
+    ''' node of a singly linked list
+    '''
+    def __init__(self, data, next_node=None):
+        ''' initialized a node
+        '''
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
-        """Return private instance data"""
+        ''' method that returns the data of a node
+        '''
         return self.__data
 
     @data.setter
     def data(self, value):
-        """Sets the value of data"""
-        if type(value) is int:
-            self.__data = value
+        ''' method that sets the data of a node
+        '''
+        if isinstance(value, int) is False:
+            raise TypeError('data must be an integer')
         else:
-            raise TypeError("data must be an integer")
+            self.__data = value
 
     @property
     def next_node(self):
-        """Returns the next node"""
+        ''' method that returns the next node
+        '''
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        """Sets the next_node value"""
-        if value is not None and type(value) is not Node:
-            raise TypeError("next_node must be a Node object")
+        ''' method that sets the next node
+        '''
+        if value is not None and isinstance(value, Node) is False:
+            raise TypeError('next_node must be a Node object')
         else:
             self.__next_node = value
 
-    def __init__(self, data, next_node=None):
-        """Initialize a node"""
-        self.data = data
-        self.next_node = next_node
-
 
 class SinglyLinkedList:
-    """A singly linked list class"""
-
+    ''' a singly linked list
+    '''
     def __init__(self):
-        """Initializes a singly linked list"""
+        ''' initializes a singly linked list
+        '''
         self.__head = None
 
     def sorted_insert(self, value):
-        """Inserts a node into a linked list"""
+        ''' method that inserts a node into a linked list
+        '''
         if self.__head is None:
             self.__head = Node(value, None)
         elif value <= self.__head.data:
-            new_node = Node(value, self.__head)
-            self.__head = new_node
+            new = Node(value, self.__head)
+            self.__head = new
         else:
             ptr = self.__head
             while ptr.next_node is not None and ptr.next_node.data <= value:
@@ -59,10 +66,11 @@ class SinglyLinkedList:
             ptr.next_node = Node(value, tmp)
 
     def __str__(self):
-        """Printable representation of a linked list"""
+        ''' the printable representation of the linked list
+        '''
         ptr = self.__head
-        to_print = ""
+        toprint = ''
         while ptr is not None:
-            to_print = to_print + str(ptr.data) + '\n'
+            toprint = toprint + str(ptr.data) + '\n'
             ptr = ptr.next_node
-        return to_print[:-1]
+        return toprint[:-1]

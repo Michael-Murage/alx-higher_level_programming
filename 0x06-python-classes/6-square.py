@@ -1,35 +1,34 @@
 #!/usr/bin/python3
-"""Define class square"""
+"""define class Square"""
 
 
 class Square:
+    """Defines a square:"""
+
     def __init__(self, size=0, position=(0, 0)):
-        """Initialize a square object"""
+        """Initializer object"""
 
         self.__size = size
         self.__position = position
-        # if type(size) is not int:
-        #     raise TypeError("size must be an integer")
-        # elif type(size) is int and size < 0:
-        #     raise ValueError("size must be >= 0")
-        # elif type(size) is int and size >= 0:
-        #     self.__size = size
 
     def area(self):
-        """Returns the area of the square"""
+        """return area of the Square in the atribute private __size"""
 
-        if type(self.__size) is int:
-            return self.__size ** 2
+        return self.__size ** 2
 
     @property
     def size(self):
-        """Returns the size of the square"""
+        """converts the private attribute self .__ size
+        into a readable variable in the
+        way self.size and in the same way as a public
+        attribute it is modifiable.
+        """
 
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setting the value of the size of the square"""
+        """assigns the value to the size variable"""
 
         if type(value) is not int:
             raise TypeError("size must be an integer")
@@ -38,27 +37,35 @@ class Square:
         self.__size = value
 
     def my_print(self):
-        """Prints to stdout the square with the character #"""
+        """Print a square with size of self.__size
+        and if self.position[1] is greater than 0
+        print a line break and if size is less
+        than or equal to 0 print line break.
+        """
 
         position = self.position[0]
         size = self.size
-        for i in range(self.position[1]):
-            print('\n', end='')
+        [print('\n', end='') for _ in range(self.position[1])]
 
-        for i in range(size):
-            for j in range(position):
+        for _ in range(self.size):
+            for _ in range(position):
                 print(' ', end='')
-            print(size * "#")
+            print(size * '#')
 
     @property
     def position(self):
-        """Returns the position attribute"""
+        """makes the private attribute self
+        .__position a readable variable in
+        the way self.position and in the same
+        way that a public attribute is modifiable.
+        """
 
         return self.__position
 
     @position.setter
     def position(self, value):
-        if len(value) == 2 and all(isinstance(i, int) for i in value):
-            self.__position = value
-        else:
+        """assigns the value to the position variable"""
+
+        if type(value) is not tuple or len(value) > 1:
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.position = value
