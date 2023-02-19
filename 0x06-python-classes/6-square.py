@@ -3,10 +3,11 @@
 
 
 class Square:
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialize a square object"""
 
         self.__size = size
+        self.__position = position
         # if type(size) is not int:
         #     raise TypeError("size must be an integer")
         # elif type(size) is int and size < 0:
@@ -45,3 +46,16 @@ class Square:
         else:
             for i in range(self.__size):
                 print('#' * self.__size)
+    
+    @property
+    def position(self):
+        """Returns the position attribute"""
+
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        if len(value) == 2 and value[0] > 0 and value[1] > 0:
+            self.__position = value
+        else:
+            raise TypeError("position must be a tuple of 2 positive integers")

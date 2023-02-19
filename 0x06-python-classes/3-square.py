@@ -11,7 +11,7 @@ class Square:
             raise ValueError("size must be >= 0")
         elif type(size) is int and size >= 0:
             self.__size = size
-    
+
     """Returns the area of the square"""
     def area(self):
         if type(self.__size) is int:
