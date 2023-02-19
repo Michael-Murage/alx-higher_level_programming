@@ -7,12 +7,6 @@ class Square:
         """Initialize a square object"""
 
         self.__size = size
-        # if type(size) is not int:
-        #     raise TypeError("size must be an integer")
-        # elif type(size) is int and size < 0:
-        #     raise ValueError("size must be >= 0")
-        # elif type(size) is int and size >= 0:
-        #     self.__size = size
 
     def area(self):
         """Returns the area of the square"""
@@ -32,10 +26,9 @@ class Square:
 
         if type(value) is not int:
             raise TypeError("size must be an integer")
-        elif type(value) is int and value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        elif type(value) is int and value >= 0:
-            self.__size = value
+        self.__size = value
 
     def my_print(self):
         """Prints to stdout the square with the character #"""

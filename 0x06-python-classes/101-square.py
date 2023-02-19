@@ -8,18 +8,10 @@ class Square:
 
         self.__size = size
         self.__position = position
-        # if type(size) is not int:
-        #     raise TypeError("size must be an integer")
-        # elif type(size) is int and size < 0:
-        #     raise ValueError("size must be >= 0")
-        # elif type(size) is int and size >= 0:
-        #     self.__size = size
 
     def area(self):
         """Returns the area of the square"""
-
-        if type(self.__size) is int:
-            return self.__size ** 2
+        return self.__size ** 2
 
     @property
     def size(self):
@@ -38,17 +30,25 @@ class Square:
         self.__size = value
 
     def my_print(self):
-        """Prints to stdout the square with the character #"""
+        """Printd the square"""
 
-        position = self.position[0]
-        size = self.size
-        for i in range(self.position[1]):
-            print('\n', end='')
+        print(self)
 
-        for i in range(size):
-            for j in range(position):
-                print(' ', end='')
-            print(size * "#")
+    def __str__(self):
+        """Printable representation of the square"""
+
+        to_print = ""
+        if self.__size == 0:
+            return to_print
+        for i in range((self.__position)[1]):
+            to_print = to_print + "\n"
+        for j in range(self.__size):
+            for k in range((self.__position)[0]):
+                to_print = to_print + " "
+            for j in range(self.size):
+                to_print = to_print + "#"
+            to_print = to_print + "\n"
+        return to_print[:-1]
 
     @property
     def position(self):
