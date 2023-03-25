@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const arg = parseInt(process.argv[2]);
 
-function fact(num) {
+function fact (num) {
   if (num < 0) {
     return -1;
   }
