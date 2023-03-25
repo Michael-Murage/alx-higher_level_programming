@@ -1,0 +1,15 @@
+{
+  "name": "0x12-javascript-warm_up",
+  "version": "1.0.0",
+  "description": "",
+  "main": "13-add.js",
+  "scripts": {
+    "test": "semistandard && node"
+  },
+  "devDependencies": {
+    "semistandard": "*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
