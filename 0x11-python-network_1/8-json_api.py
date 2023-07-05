@@ -9,7 +9,7 @@ if __name__ == '__main__':
     from sys import argv
     from requests import post
 
-    q = argv[1] or ""
+    q = argv[1] if len(argv) > 1 else ''
     res = post('http://0.0.0.0:5000/search_user', data={'q': q})
     try:
         json = res.json()

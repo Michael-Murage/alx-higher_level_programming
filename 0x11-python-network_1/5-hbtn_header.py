@@ -5,7 +5,7 @@ Takes in a URL, sends a request to the URL and displays the
 """
 
 
-if __name__ == '__maim__':
+if __name__ == '__main__':
     from sys import argv
     from requests import get
 
