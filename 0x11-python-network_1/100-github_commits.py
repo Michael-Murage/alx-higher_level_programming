@@ -14,16 +14,15 @@ if __name__ == '__main__':
     from requests import get
 
     res = get('https://api.github.com/repos/{}/{}/commits'
-        .format(argv[2], argv[1]))
+              .format(argv[2], argv[1]))
     if res.status_code >= 400:
         print('None')
     else:
         for commit in res.json()[:10]:
             print('{}: {}'
-                .format(
-                    commit.get('sha'), 
-                    commit.get('commit')
+                  .format(
+                        commit.get('sha'),
+                        commit.get('commit')
                         .get('author')
                         .get('name')
-                )
-            )
+                  ))
